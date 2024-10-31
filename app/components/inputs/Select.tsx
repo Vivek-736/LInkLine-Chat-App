@@ -8,7 +8,8 @@ interface SelectProps {
     value?: Record<string, unknown>;
     options: Record<string, unknown>[];
     disabled?: boolean;
-    onChange?: (value: Record<string, unknown>) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onChange?: (newValue: unknown, actionMeta: any) => void;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -27,7 +28,7 @@ const Select: React.FC<SelectProps> = ({
             <ReactSelect
                 options={options}
                 value={value}
-                onChange={onChange}
+                onChange={(newValue, actionMeta) => onChange && onChange(newValue, actionMeta)}
                 isDisabled={disabled}
                 isMulti
                 menuPortalTarget={document.body}
