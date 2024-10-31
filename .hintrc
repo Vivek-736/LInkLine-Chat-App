@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "typescript-config/consistent-casing": "off",
+    "no-inline-styles": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ],
+    "axe/structure": "off"
+  }
+}
