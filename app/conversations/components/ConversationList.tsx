@@ -23,6 +23,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ initialItems, users
   const [items, setItems] = useState(initialItems)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const router = useRouter()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { conversationId, isOpen } = useConversation();
 
   const pusherKey = useMemo(() => {
