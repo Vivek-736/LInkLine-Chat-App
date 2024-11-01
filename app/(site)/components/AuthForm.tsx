@@ -22,9 +22,9 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/users")
+      setTimeout(() => router.push("/users"), 100);
     }
-  }, [session?.status, router])
+  }, [session?.status, router]);
 
   const toggleVariant = useCallback(() => {
     if (variant === "LOGIN") {
@@ -32,7 +32,7 @@ const AuthForm = () => {
     } else {
       setVariant("LOGIN")
     }
-  }, [variant])
+  }, [variant]);
 
   const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
     defaultValues: {
@@ -40,16 +40,16 @@ const AuthForm = () => {
       email: '',
       password: '',
     },
-  })
+  });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     if (variant === "REGISTER") {
       axios.post('/api/register', data)
         .then(() => signIn('credentials', data))
         .catch(() => toast.error('Error Occured!'))
-        .finally(() => setIsLoading(false))
+        .finally(() => setIsLoading(false));
     }
 
     if (variant === "LOGIN") {
@@ -59,16 +59,16 @@ const AuthForm = () => {
       })
         .then((callback) => {
           if (callback?.error) {
-            toast.error("Invalid credentials!")
+            toast.error("Invalid credentials!");
           }
           if (callback?.ok && !callback?.error) {
-            toast.success("Logged in successfully")
-            router.push("/users")
+            toast.success("Logged in successfully");
+            setTimeout(() => router.push("/users"), 100);
           }
         })
-        .finally(() => setIsLoading(false))
+        .finally(() => setIsLoading(false));
     }
-  }
+  };
 
   const socialAction = (action: string) => {
     setIsLoading(true);
@@ -76,14 +76,15 @@ const AuthForm = () => {
     signIn(action, { redirect: false })
       .then(callback => {
         if (callback?.error) {
-          toast.error("Something went wrong!")
+          toast.error("Something went wrong!");
         }
         if (callback?.ok && !callback?.error) {
-          toast.success("Logged in successfully")
+          toast.success("Logged in successfully");
+          setTimeout(() => router.push("/users"), 100);
         }
       })
-      .finally(() => setIsLoading(false))
-  }
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
@@ -104,7 +105,6 @@ const AuthForm = () => {
         </form>
 
         <div className='mt-6'>
-
           <div className='relative'>
             <div className='absolute inset-0 flex items-center'>
               <div className='w-full border-t border-gray-300' />
@@ -126,7 +126,6 @@ const AuthForm = () => {
               onClick={() => socialAction('google')}
             />
           </div>
-
         </div>
 
         <div className='flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500'>
@@ -140,7 +139,7 @@ const AuthForm = () => {
 
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuthForm
+export default AuthForm;
