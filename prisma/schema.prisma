@@ -39,9 +39,9 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refreshToken      String? @db.ObjectId
-  accessToken       String? @db.ObjectId
-  expiresAt         Int?
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
   token_type        String?
   scope             String?
   id_token          String? @db.String
@@ -63,7 +63,7 @@ model Conversation {
   messages   Message[]
 
   userIds String[] @db.ObjectId
-  users   User[]  @relation(fields: [userIds], references: [id])
+  users   User[]   @relation(fields: [userIds], references: [id])
 }
 
 model Message {
@@ -73,7 +73,7 @@ model Message {
   createdAt DateTime @default(now())
 
   seenIds String[] @db.ObjectId
-  seen    User[]  @relation("Seen", fields: [seenIds], references: [id])
+  seen    User[]   @relation("Seen", fields: [seenIds], references: [id])
 
   conversationId String       @db.ObjectId
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)

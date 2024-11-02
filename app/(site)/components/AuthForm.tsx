@@ -80,7 +80,6 @@ const AuthForm = () => {
         }
         if (callback?.ok && !callback?.error) {
           toast.success("Logged in successfully")
-          setTimeout(() => router.push("/users"), 1000);
         }
       })
       .finally(() => setIsLoading(false))
