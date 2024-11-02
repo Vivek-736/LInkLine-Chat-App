@@ -8,11 +8,10 @@ export default function Home() {
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <Image src={logo} width="58" height="58" alt="logo" className="mx-auto w-auto" />
                 <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 tracking-tight">
-                    LogIn to your account
+                    <span className="bg-gradient-to-b from-[#6c14c5] to-[#29c6ee] bg-clip-text text-transparent">LogIn to your account!</span>
                 </h2>
             </div>
             <AuthForm />
         </div>
-
     );
 }
