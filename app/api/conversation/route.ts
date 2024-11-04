@@ -36,9 +36,9 @@ export async function POST(request: Request) {
                 }
             })
 
-            newConversation.users.forEach(async (user) => {
+            newConversation.users.forEach((user) => {
                 if(user.email) {
-                    await pusherServer.trigger(user.email, "conversation:new", newConversation);
+                    pusherServer.trigger(user.email, "conversation:new", newConversation);
                 }
             })
 
@@ -81,9 +81,9 @@ export async function POST(request: Request) {
             }
         });
 
-        newConversation.users.map(async (user) => {
+        newConversation.users.map((user) => {
             if(user.email) {
-                await pusherServer.trigger(user.email, "conversation:new", newConversation);
+                pusherServer.trigger(user.email, "conversation:new", newConversation);
             }
         })
 
