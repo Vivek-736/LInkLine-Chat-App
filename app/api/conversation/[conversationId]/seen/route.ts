@@ -74,7 +74,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
 
     catch (error) {
         console.log(error, "ERROR_MESSAGE")
-        return new NextResponse("Internal Erro", { status: 500 })
+        return new NextResponse("Internal Error", { status: 500 })
     }
 
 }
