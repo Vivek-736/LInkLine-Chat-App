@@ -1,18 +1,10 @@
-"use client"
-
-import clsx from "clsx"
-import useConversation from "../hooks/useConversation"
-import EmptyState from "../components/EmptyState"
 import React from 'react'
+import LoadingModal from '../components/LoadingModal'
 
-const Home = () => {
-    const { isOpen } = useConversation();
-
-    return (
-        <div className={clsx("lg:pl-80 h-full lg:block", isOpen ? "block" : "hidden")}>
-            <EmptyState />
-        </div>
-    )
+const loading = () => {
+  return (
+    <LoadingModal/>
+  )
 }
 
-export default Home
+export default loading
