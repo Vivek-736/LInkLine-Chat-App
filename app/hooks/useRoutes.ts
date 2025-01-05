@@ -5,6 +5,8 @@ import useConversation from "./useConversation";
 import { IoChatboxEllipsesSharp } from "react-icons/io5";
 import { HiArrowLeftOnRectangle } from "react-icons/hi2";
 import { FaUsers } from "react-icons/fa";
+import { LiaLayerGroupSolid } from "react-icons/lia";
+import { LiaMeetup } from "react-icons/lia";
 
 const useRoutes = () => {
     const pathname = usePathname();
@@ -22,6 +24,18 @@ const useRoutes = () => {
             href: "/users",
             icon: FaUsers,
             active: pathname === "/users"
+        },
+        {
+            label: "Courses",
+            href: "/courses",
+            icon: LiaLayerGroupSolid,
+            active: pathname === "/courses"
+        },
+        {
+            label: "Clubs",
+            href: "/clubs",
+            icon: LiaMeetup,
+            active: pathname === "/clubs"
         },
         {
             label: "LogOut",
