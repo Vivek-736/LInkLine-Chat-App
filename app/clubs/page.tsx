@@ -10,7 +10,7 @@ const ClubsPage: React.FC = () => {
             <p className="text-lg text-gray-600 mb-2">
                 Currently, this page is under development.
             </p>
-            <p className="text-4xl text-green-600">
+            <p className="text-2xl text-green-600">
                 Stay tuned for updates!
             </p>
         </div>
