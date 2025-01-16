@@ -18,6 +18,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "LinkLine - Your messaging buddy",
   description: "messaging application",
+  viewport: 'width=device-width, initial-scale=1.0'
 };
 
 export default function RootLayout({
